@@ -13,7 +13,7 @@ struct Film
 };
 
 //aceasta functie de initializare va returna o variabila de tip struct Film
-struct Film initializare(int id, char* titlu, float durata, char gen, int rating)
+struct Film initializare(int id, const char* titlu, float durata, char gen, int rating)
 {
     struct Film f;
 
