@@ -15,8 +15,8 @@ struct Produs
 	char categorie;
 };
 
-
-struct Produs initializare(int id, int stoc, char* denumire, float pret, char categorie)
+//const char* pentru a nu putea fi modificata informatia de la acea adresa (informatia primita ca input)
+struct Produs initializare(int id, int stoc,const char* denumire, float pret, char categorie)
 {
 	struct Produs p; //se creeaza o variabila locala(pe stack) p de tip struct Produs
 
@@ -81,7 +81,7 @@ int main()
 
 	//%s = sir de caractere, %c = un singur caracter
 	printf("Valoarea totala pentru %s este %5.3f RON", p.denumire, calculeazaTotal(p));
-
+	
 
 
 	
