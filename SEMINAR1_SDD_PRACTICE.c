@@ -52,7 +52,29 @@ void dezalocare(struct Film* f)
 }
 
 
+void modifica_Titlu(struct Film* f, char* nouTitlu)
+{
+    free(f->titlu); //eliberez memoria din heap
 
+    f->titlu = (char*)malloc(sizeof(char) * (strlen(nouTitlu) + 1));//realoc pentru noul titlu
+    strcpy(f->titlu, nouTitlu);
+
+}
+
+void modifica_Durata(struct Film* f, float nouaDurata)
+{
+    f->durata = nouaDurata;
+}
+
+
+int esteFilmBun(struct Film f)
+{
+    if (f.rating >= 5)
+        return 1;
+    return 0;
+
+    //sau:  return (f.rating >= 5);
+}
 
 int main()
 {
@@ -60,6 +82,16 @@ int main()
     f1 = initializare(1, "Vizavi", 120, 'D', 6); //se apeleaza functia de initializare
     afisare(f1);
 
+    modifica_Titlu(&f1, "His and Hers");
+    afisare(f1);
+
+    modifica_Durata(&f1, 98.345);
+    afisare(f1);
+
+    if (esteFilmBun(f1) == 1) //se apeleaza functia pentru structura f1
+        printf("Filmul este bun!\n");
+    else
+        printf("Filmul nu este bun!\n");
 
     dezalocare(&f1);
 
