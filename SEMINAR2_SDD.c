@@ -237,7 +237,13 @@ int main()
 	struct Telefon t3 = getPrimulTelefonDeLaProducator(telefoane,nrTelefoane,"Apple");
 	printf("Primul telefon din vectorul de telefoane care este de la firma %s este:\n ", t3.producator);
 	afisare(t3);
+	if (t3.producator != NULL)
+	{
+		free(t3.producator);
+		t3.producator = NULL;
+	}
 
+	dezalocare(&telefoane, &nrTelefoane);
 
 	return 0;
 }
