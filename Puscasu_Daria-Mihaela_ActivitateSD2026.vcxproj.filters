@@ -24,5 +24,11 @@
     <ClCompile Include="SEMINAR2_SDD.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SEMINAR2_SDD_PRACTICE.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR3_SDD.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
