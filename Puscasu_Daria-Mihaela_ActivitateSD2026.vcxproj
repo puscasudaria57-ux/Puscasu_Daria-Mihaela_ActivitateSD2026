@@ -131,7 +131,7 @@
     <ClCompile Include="SEMINAR1_SDD_PRACTICE.c" />
     <ClCompile Include="SEMINAR2_SDD.c" />
     <ClCompile Include="SEMINAR2_SDD_PRACTICE.c" />
-    <ClCompile Include="SEMINAR3_SDD.c" />
+    <ClCompile Include="SEMINAR3_SD.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
