@@ -1,5 +1,5 @@
-1,120,8.5,Inception,Nolan,S
-2,150,9.0,Interstellar,Nolan,S
-3,100,7.8,Titanic,Cameron,D
-4,110,8.1,Avatar,Cameron,S
-5,95,6.9,Joker,Phillips,T
+1, 120, 8.5, Inception, Nolan, S
+2, 150, 9.0, Interstellar, Nolan, S
+3, 100, 7.8, Titanic, Cameron, D
+4, 110, 8.1, Avatar, Cameron, S
+5, 95, 6.9, Joker, Phillips, T

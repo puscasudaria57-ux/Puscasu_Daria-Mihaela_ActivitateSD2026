@@ -129,10 +129,21 @@
   <ItemGroup>
     <ClCompile Include="SEMINAR1_SDD.c" />
     <ClCompile Include="SEMINAR1_SDD_PRACTICE.c" />
+    <ClCompile Include="SEMINAR1_SDD_PRACTICE2.c" />
     <ClCompile Include="SEMINAR2_SDD.c" />
     <ClCompile Include="SEMINAR2_SDD_PRACTICE.c" />
     <ClCompile Include="SEMINAR3_SD.c" />
     <ClCompile Include="SEMINAR3_SDD_PRACTICE.c" />
+    <ClCompile Include="SEMINAR2_SDD_PRACTICE2.c" />
+    <ClCompile Include="SEMINAR3_SDD_PRACTICE2.c" />
+    <ClCompile Include="SEMINAR4_PRACTICE.c" />
+    <ClCompile Include="SEMINAR4_SDD.c" />
+    <ClCompile Include="SEMINAR4_SDD_PRACTICE02.c" />
+    <ClCompile Include="SEMINAR5_SDD.c" />
+    <ClCompile Include="SEMINAR5_SDD_PRACTICE02.c" />
+    <ClCompile Include="SEMINAR5_SDD_PRACTICE1.c" />
+    <ClCompile Include="SEMINAR6_SDD.c" />
+    <ClCompile Include="SEMINAR7_SDD.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

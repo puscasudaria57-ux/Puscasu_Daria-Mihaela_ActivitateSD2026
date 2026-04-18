@@ -33,5 +33,38 @@
     <ClCompile Include="SEMINAR3_SDD_PRACTICE.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SEMINAR4_SDD.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR5_SDD.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR6_SDD.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR7_SDD.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR4_PRACTICE.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR4_SDD_PRACTICE02.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR1_SDD_PRACTICE2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR2_SDD_PRACTICE2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR3_SDD_PRACTICE2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR5_SDD_PRACTICE1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SEMINAR5_SDD_PRACTICE02.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

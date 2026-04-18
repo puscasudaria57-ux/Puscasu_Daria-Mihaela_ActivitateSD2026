@@ -203,14 +203,142 @@ void dezalocare(ListaDubla* listaDubla)
 }
 
 
+float calculeazaPretMediu(ListaDubla listaDubla)
+{
+	Nod* aux = listaDubla.cap;
+	int contor = 0;
+	float suma = 0;
+	while (aux != NULL)
+	{
+		suma = suma + aux->info.pret;
+		contor++;
 
+		aux = aux->next;
+	}
+
+	if (contor != 0)
+	{
+		return suma / contor;
+	}
+
+	return 0;
+}
+
+//id ul fiind unic se va sterge la fiecare apel o singura masina, ci nu mai multe cum era la LSI (ca nu stergi dupa sofer etc)
+void stergeMasinaDupaID(ListaDubla* listaDubla, int idCautat)//trebuie sa primim si id ul dupa care vrem sa stergem masina (nodul)
+{
+	//trebuie tratata posibilitatea ca masina pe care vrem sa o stergem se afla pe prima sau ultima pozitie
+
+	//exista noduri in lista sau nu?
+	if (listaDubla->cap == NULL)
+	{
+		return; //dc lista este goala intrerupem direct parcurgerea (optimizare dpdv a timpului)
+	}
+
+	Nod* p = listaDubla->cap;
+	while (p!=NULL && p->info.id != idCautat)//ma deplasez pana cand dam de masina cu id de sters, 
+	//ne putem pozitiona chiar pe ea, ci nu inainte de ea cum faceam la LSI, si facem p!=NULL, ca in cazul in care nu avem in 
+    //lista un nod cu id ul respectiv, vrem ca acest while sa se opreasca din cautari, sa nu cicleze la infinit
+	//voi verifica asta mai jos cu p == NULL
+	{
+		p = p->next;
+	}
+	
+
+	if (p == NULL)//suntem in situatia in care am cautat pana la finalul listei si n am gasit o masina cu acel id
+	{
+		return; //intrerupem direct executia functiei pt ca nu avem ce sterge
+	}
+
+	//DACA AVEMM CE STERGE:
+	//avem posibilitatea ca nodul sa fie: fie primul nod, fie la inceput, fie la mijloc
+	if (p->prev == NULL) //daca prevul este nul, inseamna ca este vorba de exact primul nod din lista! : PRIMUL NOD
+	{
+		//mut capul listei
+		listaDubla->cap = p->next;
+		if (listaDubla->cap != NULL)
+		{
+			//trebuie sa sterg legatura spre nodul sters
+			listaDubla->cap->prev = NULL;
+		}
+	}
+	else //pe aceasta ramura se intra daca e vorba de un nod de la mijloc sau de la final
+	{
+		p->prev->next = p->next; //nod bun, nod de sters, nod bun, primul nod bun trebuie sa aiba next ul celui de al doilea nod bun
+		
+	}
+	if (p->next != NULL)
+	{
+//iar cel de al doilea nod bun trebuie sa aiba prev ul primului nod bun, dar trebuie sa verificam daca cel de al treilea nod exista
+		p->next->prev = p->prev;
+	}
+	else //daca p->next este null inseamna ca primul nod bun trebuie sa fie ultimul adica coada sa pointeze acolo
+	{
+		//daca ajungi aici inseamna ca stergi exact ULTIMUL NOD
+		listaDubla->coada = p->prev;
+	}
+
+	//dupa ce am trecut de toate aceste verificari stergem nodul
+	//acum putem sterge p ul nodul acela de sters, de la dezalocare
+	if (p->info.model != NULL)
+		free(p->info.model);
+	if (p->info.numeSofer != NULL)
+		free(p->info.numeSofer);
+
+	//acum stergem efectiv nodul
+	free(p);
+
+}
+
+//char* pt ca returneaza numele care este char*!!!
+char* getNumeMasinaScumpa(ListaDubla listDubla)
+{
+	//trebuie sa verificam daca exista noduri in lista!
+	if (listDubla.cap != NULL)
+	{
+		Nod* max = listDubla.cap; //presupun ca nodul cu masina cea mai scumpa este primul nod
+		Nod* aux = listDubla.cap; //nod cu care sa ma deplasez
+		while (aux != NULL)
+		{
+			if (aux->info.pret > max->info.pret)
+			{
+				max = aux; //max va retine constant adresa nodului cu pret mai mare!
+			}
+			aux = aux->next;
+		}
+
+		//acum in max voi avea masina cu pretul cel mai mare si vrem sa luam de aici numele soferului, voi face deep copy
+		char* numeMaxim = (char*)malloc(sizeof(char) * (strlen(max->info.numeSofer)));
+		strcpy(numeMaxim, max->info.numeSofer);
+
+		return numeMaxim;//se va returna char* pt ca char* numeMaxim, iar tipul returnat este char*
+	}
+	else
+		return NULL;
+	
+}
 
 int main()
 {
 
 	ListaDubla ld = citireLDMasiniDinFisier("masini.txt");
-	afisareMasinaDeLaFinal(ld);
+	//afisareMasinaDeLaFinal(ld);
+	//afisareMasinaDeLaInceput(ld);
+
+	float pretMediu = calculeazaPretMediu(ld);
+	printf("Pretul mediul al masinilor este de: %.2f\n", pretMediu);
+
+	stergeMasinaDupaID(&ld, 1);
+	stergeMasinaDupaID(&ld, 5);
+	stergeMasinaDupaID(&ld, 10);
 	afisareMasinaDeLaInceput(ld);
+
+	char* numeSoferMasinaScumpa = getNumeMasinaScumpa(ld);
+	printf("Soferul cu cea mai scumpa masina este: %s\n", numeSoferMasinaScumpa);
+	if (numeSoferMasinaScumpa != NULL) //pt ca am facut deep copy in functie trebuie sa dezalocam!
+		free(numeSoferMasinaScumpa);
+
+	dezalocare(&ld);
 
 	return 0;
 }
