@@ -1,0 +1,10 @@
+1,10.5,Lapte,Alimente,A
+2,2000,Laptop,Electronice,E
+3,50,Tricou,Haine,H
+4,15.7,Paine,Alimente,A
+5,300,Telefon,Electronice,E
+6,80,Blugi,Haine,H
+7,5.5,Apa,Alimente,A
+8,1500,Televizor,Electronice,E
+9,120,Geaca,Haine,H
+10,20,Cafea,Alimente,A
