@@ -1,0 +1,10 @@
+5,120,8.6,Inception,Nolan,S
+7,95,7.2,Titanic,Cameron,D
+1,110,8.1,Interstellar,Nolan,S
+4,105,6.9,Avatar,Cameron,A
+10,130,9.0,Gladiator,Scott,I
+6,90,7.5,Joker,Phillips,D
+2,100,8.3,Matrix,Wachowski,S
+3,115,7.8,ShutterIsland,Scorsese,T
+8,125,8.9,TheGodfather,Coppola,C
+9,98,6.7,Dune,Villeneuve,S
